@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Section UI</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #f5f7fa, #e4ecf7);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 60px;
+        }
+
+        .img img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+
+        .menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .menu a {
+            position: relative;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: larger;
+            padding-bottom: 5px;
+        }
+
+        .menu a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background: #007bff;
+            transition: 0.3s;
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        .menu a:hover {
+            color: #007bff;
+        }
+
+
+        .btn {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn button {
+            padding: 8px 18px;
+            border-radius: 25px;
+            border: 1px solid #333;
+            background: transparent;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn button:hover {
+            background: #007bff;
+            color: white;
+            border: none;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 60px;
+            gap: 40px;
+        }
+
+
+        .content h4 {
+            display: inline-block;
+            border: 1px solid #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .content h1 {
+            font-size: 48px;
+            margin: 20px 0;
+            color: #222;
+            line-height: 1.2;
+        }
+
+        .content p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .content button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: #007bff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .content button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        
+        .card {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .card-img:hover img {
+            transform: scale(1.1);
+        }
+
+        
+        .top-card {
+            position: absolute;
+            top: -25px;
+            left: -30px;
+            background: white;
+            padding: 15px;
+            width: 220px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .top-card h3 {
+            font-size: 28px;
+        }
+
+        .top-card span {
+            font-size: 13px;
+            color: gray;
+        }
+
+        .img-group {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .img-group img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+            margin-left: -8px;
+        }
+
+        .img-group img:first-child {
+            margin-left: 0;
+        }
+
+
+        .bottom {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: white;
+            padding: 12px;
+            width: 260px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+            display: flex;
+            gap: 10px;
+        }
+
+        .bottom img {
+            width: 40px;
+        }
+
+        .bottom h3 {
+            font-size: 14px;
+        }
+
+        .bottom p {
+            font-size: 12px;
+            color: gray;
+            line-height: 1.4;
+        }
+
+
+        @media(max-width:900px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .card {
+                margin-top: 30px;
+            }
+
+            .top-card {
+                left: 10px;
+            }
+
+            .bottom {
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+
+        <div class="navbar">
+            <div class="img">
+                <img src="instapic.jpg" alt="">
+            </div>
+
+            <div class="menu">
+                <a href="#">Home</a>
+                <a href="#">Service</a>
+                <a href="#">How it Works</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+            </div>
+
+            <div class="btn">
+                <button>Sign in</button>
+                <button>Start out</button>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="content">
+                <h4>🔥 Top UGC hub</h4>
+                <h1>Your Partner For Successful Campaigns</h1>
+                <p>Boost your brand with skilled UGC Creators delivering high-quality. authentic content at exceptional
+                    value.</p>
+                <button>Contact us</button>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <img src="card.jpeg" alt="">
+                </div>
+
+                <div class="top-card">
+                    <h3>+56</h3>
+                    <span>#op-Time Creative Team</span>
+                    <div class="img-group">
+                        <img src="circle-img4.jpg">
+                        <img src="circle-img4.jpg">
+                        <img src="circle-img4.jpg">
+                        <img src="circle-img4.jpg">
+                    </div>
+                </div>
+
+                <div class="bottom">
+                    <img src="Download Light bulb icon for free.jpg">
+                    <div>
+                        <h3>Tips or A Successful Compaign</h3>
+                        <p>Tips or A Successful Compaign
+                            Success in correpoigns Start with planning creativity and execlution</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

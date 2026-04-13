@@ -14,21 +14,52 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+
         body {
-            background: linear-gradient(to right, #f5f7fa, #e4ecf7);
+            min-height: 100vh;
+            background: radial-gradient(circle at top left, #dbeafe, #f5f7fa);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+
+        .hero {
+            width: 90%;
+            max-width: 1200px;
+            padding: 30px 40px;
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #60a5fa, transparent);
+            top: -100px;
+            left: -100px;
+            filter: blur(80px);
+        }
+
 
         .navbar {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 20px 60px;
+            align-items: center;
+            margin-bottom: 40px;
         }
 
         .img img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
+            width: 60px;
             border-radius: 10px;
         }
 
@@ -42,28 +73,21 @@
             position: relative;
             text-decoration: none;
             color: #333;
-            font-weight: 500;
-            font-size: larger;
-            padding-bottom: 5px;
         }
 
         .menu a::after {
             content: "";
             position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0%;
+            width: 0;
             height: 2px;
-            background: #007bff;
+            left: 0;
+            bottom: -5px;
+            background: #3b82f6;
             transition: 0.3s;
         }
 
         .menu a:hover::after {
             width: 100%;
-        }
-
-        .menu a:hover {
-            color: #007bff;
         }
 
 
@@ -82,41 +106,36 @@
         }
 
         .btn button:hover {
-            background: #007bff;
+            transform: translateY(-3px);
+            background: #3b82f6;
             color: white;
             border: none;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
 
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            align-items: center;
-            padding: 60px;
             gap: 40px;
+            align-items: center;
         }
 
 
         .content h4 {
             display: inline-block;
-            border: 1px solid #333;
-            padding: 5px 15px;
+            padding: 6px 15px;
             border-radius: 20px;
-            font-size: 14px;
+            background: #e0f2fe;
         }
 
         .content h1 {
             font-size: 48px;
             margin: 20px 0;
-            color: #222;
-            line-height: 1.2;
         }
 
         .content p {
             color: #555;
-            line-height: 1.6;
             margin-bottom: 25px;
         }
 
@@ -124,7 +143,7 @@
             padding: 12px 25px;
             border: none;
             border-radius: 25px;
-            background: #007bff;
+            background: #3b82f6;
             color: white;
             font-weight: bold;
             cursor: pointer;
@@ -132,30 +151,23 @@
         }
 
         .content button:hover {
-            background: #0056b3;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
-        
+
         .card {
             position: relative;
-            display: flex;
-            justify-content: center;
         }
 
         .card-img {
-            width: 100%;
-            max-width: 450px;
-            border-radius: 25px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
         .card-img img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
             transition: 0.5s;
         }
 
@@ -163,25 +175,29 @@
             transform: scale(1.1);
         }
 
-        
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+
         .top-card {
             position: absolute;
-            top: -25px;
-            left: -30px;
+            top: -20px;
+            left: -20px;
             background: white;
             padding: 15px;
-            width: 220px;
             border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .top-card h3 {
-            font-size: 28px;
-        }
-
-        .top-card span {
-            font-size: 13px;
-            color: gray;
+            width: 200px;
+            animation: float 4s ease-in-out infinite;
         }
 
         .img-group {
@@ -190,16 +206,11 @@
         }
 
         .img-group img {
-            width: 28px;
-            height: 28px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid white;
             margin-left: -8px;
-        }
-
-        .img-group img:first-child {
-            margin-left: 0;
+            border: 2px solid white;
         }
 
 
@@ -208,57 +219,28 @@
             bottom: -20px;
             right: -20px;
             background: white;
-            padding: 12px;
-            width: 260px;
+            padding: 10px;
             border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-
+            width: 240px;
             display: flex;
             gap: 10px;
+            animation: float 5s ease-in-out infinite;
         }
 
         .bottom img {
-            width: 40px;
-        }
-
-        .bottom h3 {
-            font-size: 14px;
-        }
-
-        .bottom p {
-            font-size: 12px;
-            color: gray;
-            line-height: 1.4;
+            width: 30px;
         }
 
 
         @media(max-width:900px) {
-
-            .navbar {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .menu {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
             .grid {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .card {
-                margin-top: 30px;
-            }
-
-            .top-card {
-                left: 10px;
-            }
-
-            .bottom {
-                right: 10px;
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
@@ -270,7 +252,7 @@
 
         <div class="navbar">
             <div class="img">
-                <img src="instapic.jpg" alt="">
+                <img src="instapic.jpg">
             </div>
 
             <div class="menu">
@@ -298,14 +280,13 @@
 
             <div class="card">
                 <div class="card-img">
-                    <img src="card.jpeg" alt="">
+                    <img src="card.jpeg">
                 </div>
 
                 <div class="top-card">
                     <h3>+56</h3>
                     <span>#op-Time Creative Team</span>
                     <div class="img-group">
-                        <img src="circle-img4.jpg">
                         <img src="circle-img4.jpg">
                         <img src="circle-img4.jpg">
                         <img src="circle-img4.jpg">
@@ -316,10 +297,10 @@
                     <img src="Download Light bulb icon for free.jpg">
                     <div>
                         <h3>Tips or A Successful Compaign</h3>
-                        <p>Tips or A Successful Compaign
-                            Success in correpoigns Start with planning creativity and execlution</p>
+                        <p>Success in correpoigns Start with planning creativity and execlution</p>
                     </div>
                 </div>
+
             </div>
         </div>
 
